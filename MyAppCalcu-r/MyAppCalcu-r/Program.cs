@@ -13,7 +13,7 @@ namespace MyAppCalcu_r
             Console.WriteLine("***** Welcome my user ! *****");
             Console.WriteLine("Enter your name, please:");
             string name = Console.ReadLine();
-            Console.WriteLine(name.ToUpper());
+            Console.WriteLine(GetUpperString(name));
             string again = "yes";
             while (again == "yes")
             {
@@ -61,6 +61,7 @@ namespace MyAppCalcu_r
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine("Do you want continue ? 'yes' or 'no'");
                 again = Console.ReadLine();
+                again = GetLowerString(again);
                 Console.Clear();
 
                 if (again == "no")
@@ -69,8 +70,26 @@ namespace MyAppCalcu_r
                     Console.WriteLine("The end program!");
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
-                
+
             }
+        }
+        public static string GetUpperString(string s)
+
+        {
+            var firstSymbol = s.Substring(0, 1);
+            firstSymbol = firstSymbol.ToUpper();
+
+            var otherSymbol = s.Substring(1);
+            otherSymbol = otherSymbol.ToLower();
+
+            return firstSymbol + otherSymbol;   
+        }
+        public static string GetLowerString(string s)
+        {
+            var allSymbol = s.Substring(0);
+            allSymbol = allSymbol.ToLower();
+
+            return allSymbol;
         }
     }
 }
